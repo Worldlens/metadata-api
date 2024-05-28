@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  onramp-money-service:
+    image: adminesollab/dev-repository:onramp-money-service-latest
+    build: ./
+    env_file:
+      - .env
+    container_name: onramp-money-service
+    restart: always
+    ports:
+      - "3456:3456"
+    networks:
+      - pos_25
+
+networks:
+  pos_25:
+    external: true
